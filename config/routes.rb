@@ -1,13 +1,31 @@
 Rails.application.routes.draw do
-  get 'products/index'
+  # get 'sessions/new'
 
-  get 'products/show'
+  # get 'sessions/create'
 
-  get 'products/edit'
+  # get 'sessions/destroy'
 
-  get 'products/new'
+  # get 'products/index'
 
-  get 'products/delete'
+  # get 'products/show'
+
+  # get 'products/edit'
+
+  # get 'products/new'
+
+  # get 'products/delete'
+
+  root 'products#index'
+
+ 
+
+  resources :products do
+    resources :reviews, :only => [:show, :create, :destroy]
+  end
+
+  resources :products
+  resources :sessions, :only => [:new, :create, :destroy]
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -63,4 +81,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
