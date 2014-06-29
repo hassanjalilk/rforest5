@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_filter :ensure_logged_in, :only => [:create]
+
   def index
     @products = Product.all
   end

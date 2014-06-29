@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  # get 'users/new'
 
-  get 'users/create'
+  # get 'users/create'
 
   # get 'sessions/new'
 
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   resources :products
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:new, :create]
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
